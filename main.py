@@ -1,14 +1,16 @@
+from cProfile import run
+from re import I
 import subprocess
 from pathlib import Path
 from colors import print_success, print_warning
 import os
+from test_py.c03 import run_test_c03
+from test_py.c04 import run_test_c04
 
 PATH = Path.home() / "goinfre/generateur_improba/"
 GOINFRE_PATH = Path.home() / "goinfre/"
 
-days = {
-    "C03": ["strcmp", "strncmp", "strcat", "strncat", "strstr", "strlcat"]
-}
+days = ["C03", "C04"]
 
 def run_git_clone():
     subprocess.run(["rm", "-fr", PATH])
@@ -34,18 +36,18 @@ def run_norminette():
 
 
 if __name__ == "__main__":
+    subprocess.run(["clear"])
     print(os.path.isdir(GOINFRE_PATH))
     if not os.path.isdir(GOINFRE_PATH):
         print_warning("Le GOINFRE n'est pas présent sur ce poste.")
     else:
-        print("3 - C03")
+        print("3 - C03\n4 - C04")
         day_number = input("Selectionnez votre day :")
-        while (days.get("C0" + day_number) is None):
+        while (str("C0" + day_number) not in days):
             day_number = input("Selectionnez votre day :")
         run_git_clone()
         run_norminette()
-        exercices = days.get("C0" + "3")
-        from test_py.c03 import run_test
-        run_test(PATH, exercices)
-
-
+        if (str("C0" + day_number) == "C03"):
+            run_test_c03(PATH)
+        if (str("C0" + day_number) == "C04"):
+            run_test_c04(PATH)

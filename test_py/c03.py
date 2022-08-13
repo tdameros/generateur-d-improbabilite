@@ -12,7 +12,7 @@ NUMBER_RANDOM_TESTS = 100
 #     {"args": ["test", "test"]},
 # ]
 
-def run_test(path, exercises):
+def run_test_c03(path):
     test_strcmp(path)
     test_strncmp(path)
     test_strcat(path)
