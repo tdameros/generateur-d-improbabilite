@@ -1,6 +1,7 @@
 import subprocess
 from pathlib import Path
 from colors import print_success, print_warning
+import os
 
 PATH = Path.home() / "goinfre/generateur_improba/"
 GOINFRE_PATH = Path.home() / "goinfre/"
@@ -33,14 +34,18 @@ def run_norminette():
 
 
 if __name__ == "__main__":
-    print("3 - C03")
-    day_number = input("Selectionnez votre day :")
-    while (days.get("C0" + day_number) is None):
+    print(os.path.isdir(GOINFRE_PATH))
+    if not os.path.isdir(GOINFRE_PATH):
+        print_warning("Le GOINFRE n'est pas présent sur ce poste.")
+    else:
+        print("3 - C03")
         day_number = input("Selectionnez votre day :")
-    run_git_clone()
-    run_norminette()
-    exercices = days.get("C0" + "3")
-    from test_py.c03 import run_test
-    run_test(PATH, exercices)
+        while (days.get("C0" + day_number) is None):
+            day_number = input("Selectionnez votre day :")
+        run_git_clone()
+        run_norminette()
+        exercices = days.get("C0" + "3")
+        from test_py.c03 import run_test
+        run_test(PATH, exercices)
 
 
