@@ -2,7 +2,7 @@ import subprocess
 from colors import print_success, print_warning
 
 def compile(path, out_name, *args):
-    gcc = subprocess.Popen(["gcc", *args, "-o", out_name], cwd=path, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    gcc = subprocess.Popen(["gcc", "-Wall", "-Werror", "-Wextra", *args, "-o", out_name], cwd=path, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     gcc.wait()
     out, err = gcc.communicate()
     if (gcc.returncode != 0):

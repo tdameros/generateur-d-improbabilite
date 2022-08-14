@@ -9,7 +9,9 @@ Si vous trouvez des bugs, n'hésitez pas a ouvrir une issue sur le repo.
 ## Get started (just run)
 
 ```
-git clone https://github.com/Tom-Drs/generateur-d-improbabilite.git moulinette && python3 ./moulinette/main.py
+git clone https://github.com/Tom-Drs/generateur-d-improbabilite.git moulinette
+cd moulinette
+python3 main.py
 ```
 
 <img width="782" alt="Screen Shot 2022-08-13 at 10 19 05 PM" src="https://user-images.githubusercontent.com/50496792/184509609-531564b0-306f-41c4-bcf3-b38b0f107f27.png">
