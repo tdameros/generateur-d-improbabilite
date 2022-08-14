@@ -33,7 +33,7 @@ def test_exercise(path, user_file: str, exercise_number: str, tests_data: dict):
         return 1
     copy(path_dest, path_src)
     if not compile(path_dest, "user_out", user_file, test_file):
-            print_warning(f"L'exercice {user_file} ne compile pas.")
+            print_warning(f"L'exercice {user_file} ne compile pas avec les flags.")
             return 1
     copy(path_dest, path_random)
     compile(path_dest, "test_out", user_file[3:])
