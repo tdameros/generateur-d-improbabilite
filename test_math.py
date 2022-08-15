@@ -15,7 +15,3 @@ def get_random_symbol(length):
 
 def get_printable_ascii(length):
     return (initialize_random(length, string.printable[:95]))
-
-if __name__ == "__main__":
-    p = ["args1", "args2", 2]
-    print(", ".join(p))
